@@ -2,6 +2,8 @@ import os
 import time
 
 
+
+
 class Var(object):
 
     # Get a bot token from botfather
@@ -14,9 +16,8 @@ class Var(object):
     API_HASH = os.environ.get("API_HASH", "")
 
     # ID of users that can't use the bot commands
-    BANNED_USERS = set(
-        int(x) for x in os.environ.get(
-            "BANNED_USERS", "").split())
+    BANNED_USERS = {int(x) for x in os.environ.get("BANNED_USERS", "").split()}
+
 
     # To record start time of bot
     BOT_START_TIME = time.time()
@@ -26,6 +27,7 @@ class Var(object):
 
     # buttons
     PAGENUM = int(os.environ.get("PAGENUM", 20))
+
 
 
 class Tr(object):

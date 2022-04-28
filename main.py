@@ -89,7 +89,7 @@ async def cdata(c, q):
 
         test = f"""<p align="center"><a href="#"><img src="{r.song_art_image_url}" width="250"></a></p>"""
 
-        final = test + f"{lyrics}\n-\n📜 From : @PyLyricsBot"
+        final = f"{test}{lyrics}\n-\n📜 From : @PyLyricsBot"
         song_title = r.title
         song_artist = r.artist.replace("&", "ft")
         name = f"{song_title} {song_artist}"
@@ -155,7 +155,7 @@ async def lytxt(c, m):
     buttons = list(zip(x[::2], x[1::2]))
     if len(x) % 2 == 1:
         buttons.append((x[-1],))
-    if len(x) == 0:
+    if not x:
         return await m.reply(Tr.NORES)
 
     buttons.append(CLOSEBTN)
